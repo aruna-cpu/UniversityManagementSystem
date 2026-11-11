@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "University Management System - Lab 8",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Students",
+      "item": [
+        {
+          "name": "List students",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/students"
+          }
+        },
+        {
+          "name": "Create student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\":\"Aruna\",\"lastName\":\"Turgun\",\"email\":\"aruna@example.com\",\"major\":\"Computer Science\",\"enrollmentYear\":2024}"
+            },
+            "url": "{{baseUrl}}/api/students"
+          }
+        },
+        {
+          "name": "Student transcript",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/students/1/transcript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Courses",
+      "item": [
+        {
+          "name": "List courses",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/courses"
+          }
+        },
+        {
+          "name": "Create course",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"courseName\":\"Web Development\",\"courseCode\":\"WEB101\",\"credits\":5,\"instructor\":\"A. Teacher\"}"
+            },
+            "url": "{{baseUrl}}/api/courses"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Grades",
+      "item": [
+        {
+          "name": "Assign grade",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"studentId\":1,\"courseId\":1,\"score\":92}"
+            },
+            "url": "{{baseUrl}}/api/grades"
+          }
+        },
+        {
+          "name": "Grades for student",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/grades/student/1"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
